@@ -28,6 +28,17 @@ if (pages == "") {
 }
 
 // Variables
+moment.updateLocale("en", {
+    week: {
+        // Set the First day of week to Sunday
+        dow: parseInt(firstDayOfWeek),
+ 
+        // Set the First week of year to 
+        // contain first Thursday of the year
+        // oy value is calculated as 7 + dow – janX, where janX is the first day of January that must belong to the first week of the year
+        doy: 7 + parseInt(firstDayOfWeek) - 4 ,
+    },
+});
 var done, doneWithoutCompletionDate, due, recurrence, overdue, start, scheduled, process, cancelled, dailyNote, dailyNoteRegEx;
 if (!dailyNoteFormat) { dailyNoteFormat = "YYYY-MM-DD" };
 var dailyNoteRegEx = momentToRegex(dailyNoteFormat)

@@ -28,7 +28,11 @@ if (pages == "") {
 }
 
 // Variables
-moment.updateLocale("en", {
+
+// get current locale
+var locale = moment.locale();
+// update current locale to take into account firstDayOfWeek while calculating week numbering 
+moment.updateLocale(locale, {
     week: {
         // Set the First day of week to Sunday
         dow: parseInt(firstDayOfWeek),
